@@ -2,13 +2,15 @@ package com.kodilla.testing.calculator;
 
 public class Calculator {
 
-    public void simpleCalculator() {
+    int sum;
+    int sub;
 
-        int a = 9;
-        int b = 5;
-        int sum = a + b;
-        int sub = a - b;
-        System.out.println(sum);
-        System.out.println(sub);
+    public int add(int a, int b) {
+        sum = a + b;
+        return sum;
+    }
+    public int subtract(int a, int b) {
+        sub = a - b;
+        return sub;
     }
 }
