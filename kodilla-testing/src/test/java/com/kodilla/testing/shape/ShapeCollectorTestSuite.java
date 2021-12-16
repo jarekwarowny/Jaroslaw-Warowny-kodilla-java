@@ -31,6 +31,7 @@ public class ShapeCollectorTestSuite {
         ShapeCollector collector = new ShapeCollector();
         Shape shape = new Circle(1);
         //When
+        collector.addFigure(shape);
         collector.removeFigure(shape);
         //Then
         assertEquals(0, collector.getTheList().size());
