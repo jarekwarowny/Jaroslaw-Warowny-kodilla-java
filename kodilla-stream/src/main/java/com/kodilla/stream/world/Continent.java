@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Continent {
 
-    private final List<Country> theList2 = new ArrayList<>();
+    private final List<Country> countries = new ArrayList<>();
 
-    public List<Country> getTheList2() {
-        return theList2;
+    public List<Country> getCountries() {
+        return countries;
     }
 
     public boolean addCountry(Country country) {
-        return theList2.add(country);
+        return countries.add(country);
     }
 }

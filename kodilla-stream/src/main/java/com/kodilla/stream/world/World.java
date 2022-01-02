@@ -6,19 +6,19 @@ import java.util.List;
 
 public class World {
 
-    private final List<Continent> theList = new ArrayList<>();
+    private final List<Continent> continents = new ArrayList<>();
 
-    public List<Continent> getTheList() {
-        return theList;
+    public List<Continent> getContinents() {
+        return continents;
     }
 
     public boolean addContinent(Continent continent) {
-        return theList.add(continent);
+        return continents.add(continent);
     }
 
     public BigDecimal getPeopleQuantity() {
-        BigDecimal thePeopleQuantity = theList.stream()
-                .flatMap(continent -> continent.getTheList2().stream())
+        BigDecimal thePeopleQuantity = continents.stream()
+                .flatMap(continent -> continent.getCountries().stream())
                 .map(Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, (sum, country) -> sum.add(country));
         return thePeopleQuantity;
