@@ -1,6 +1,7 @@
 package com.kodilla.testing.forum.statistics;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.ParameterResolver;
@@ -18,6 +19,7 @@ public class TestStatistics {
     private Statistics statisticsMock;
     private CountStatistics countStatistics;
 
+    @BeforeEach
     void theNumberOfPosts() {
         statisticsMock = mock(Statistics.class);
         List<String> theUserList = new ArrayList<>();
@@ -26,8 +28,8 @@ public class TestStatistics {
             System.out.println(theUserList);
         }
         when(statisticsMock.usersNames()).thenReturn(theUserList);
-        when(statisticsMock.postsCount()).thenReturn(20);
-        when(statisticsMock.commentsCount()).thenReturn(40);
+        when(statisticsMock.postsCount()).thenReturn(10);
+        when(statisticsMock.commentsCount()).thenReturn(10);
         countStatistics = new CountStatistics();
     }
 
@@ -36,8 +38,8 @@ public class TestStatistics {
         when(statisticsMock.postsCount()).thenReturn(0);
         countStatistics.calculateAdvStatistics(statisticsMock);
         Assertions.assertEquals(0, countStatistics.getNumberOfPosts());
-        Assertions.assertEquals(0, countStatistics.getAverageNumbersOfPostsOfUser(), 0.01);
-        Assertions.assertEquals(0, countStatistics.getAverageNumbersOfCommentsOfPost(), 0.01);
+        Assertions.assertEquals(0, countStatistics.getAverageNumbersOfPostsOfUser());
+        Assertions.assertEquals(0, countStatistics.getAverageNumbersOfCommentsOfPost());
     }
 
     @Test
@@ -45,7 +47,7 @@ public class TestStatistics {
         when(statisticsMock.postsCount()).thenReturn(1000);
         countStatistics.calculateAdvStatistics(statisticsMock);
         Assertions.assertEquals(1000, countStatistics.getNumberOfPosts());
-        Assertions.assertEquals(10, countStatistics.getAverageNumbersOfPostsOfUser());
-        Assertions.assertEquals(0.1, countStatistics.getAverageNumbersOfCommentsOfPost());
+        Assertions.assertEquals(100, countStatistics.getAverageNumbersOfPostsOfUser());
+        Assertions.assertEquals(0.01, countStatistics.getAverageNumbersOfCommentsOfPost());
     }
 }

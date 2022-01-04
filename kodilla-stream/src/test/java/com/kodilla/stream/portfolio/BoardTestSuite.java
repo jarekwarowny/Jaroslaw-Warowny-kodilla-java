@@ -8,6 +8,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static java.time.temporal.ChronoUnit.DAYS;
 
 public class BoardTestSuite {
 
@@ -147,11 +148,19 @@ public class BoardTestSuite {
     void testAddTaskListAverageWorkingOnTask() {
         //Given
         Board project = prepareTestData();
-
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
-        double averageOfDays = numberOfDays /
+        double numberOfDays = project.getTaskLists().stream()
+                .flatMap(taskList -> taskList.getTasks().stream())
+                .filter(task -> LocalDate.now().isAfter(task.getCreated().minusDays(1)) && LocalDate.now().isBefore(task.getDeadline().plusDays(1)))
+                .map(task -> DAYS.between(task.getCreated(), task.getDeadline()))
+                .reduce(0L, Long::sum);
 
+        double numberOfTasks = project.getTaskLists().stream()
+                .flatMap(taskList -> taskList.getTasks().stream())
+                .filter(task -> LocalDate.now().isAfter(task.getCreated().minusDays(1)) && LocalDate.now().isBefore(task.getDeadline().plusDays(1)))
+                .count();
+        double averageOfDays = numberOfDays / numberOfTasks;
+        //Then
+        assertEquals(31.25, averageOfDays);
     }
 }
