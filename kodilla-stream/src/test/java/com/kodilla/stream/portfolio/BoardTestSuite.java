@@ -146,6 +146,12 @@ public class BoardTestSuite {
     @Test
     void testAddTaskListAverageWorkingOnTask() {
         //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        double averageOfDays = numberOfDays /
 
     }
 }

@@ -12,6 +12,10 @@ public class Board {
         this.name = name;
     }
 
+    public List<TaskList> getTaskList() {
+        return taskLists;
+    }
+
     public void addTaskList(TaskList taskList) {
         taskLists.add(taskList);
     }
