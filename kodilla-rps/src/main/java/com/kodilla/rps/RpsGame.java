@@ -19,6 +19,7 @@ public class RpsGame {
                userScore++;
                computerScore++;
            }
+           UserDialogs.showStatistics(round, numberOfRounds, computerSelection, userSelection, computerScore, userScore, winner)
            round++;
        }
     }

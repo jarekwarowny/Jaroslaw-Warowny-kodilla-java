@@ -35,7 +35,7 @@ public class CountStatistics {
 
     private double firstAverage() {
         if (numbersOfUsers > 0) {
-            return numberOfPosts/ (double) numbersOfUsers;
+            return (double) numberOfPosts/ (double) numbersOfUsers;
         } else {
             return numbersOfUsers;
         }
@@ -43,7 +43,7 @@ public class CountStatistics {
 
     private double secondAverage() {
         if (numbersOfUsers > 0) {
-            return numberOfComments/ (double) numbersOfUsers;
+            return (double) numberOfComments/ (double) numbersOfUsers;
         } else {
             return numbersOfUsers;
         }
@@ -51,7 +51,7 @@ public class CountStatistics {
 
     private double thirdAverage() {
         if (numberOfPosts > 0) {
-            return numberOfComments/ (double) numberOfPosts;
+            return (double) numberOfComments/ (double) numberOfPosts;
         } else {
             return numberOfPosts;
         }

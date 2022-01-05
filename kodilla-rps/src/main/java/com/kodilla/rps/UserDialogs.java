@@ -38,4 +38,15 @@ public class UserDialogs {
                 System.out.println("Wrong selection, try again.");
         }
     }
+
+    public static void showStatistics(int round, int numberOfRounds,
+                                      UserSelection computerSelection, UserSelection userSelection,
+                                      int computerScore, int userScore,
+                                      Winner winner) {
+        System.out.println("Round " + round + " of " + numberOfRounds);
+        System.out.println("User selected: " + userSelection);
+        System.out.println("Computer selected: " + computerSelection);
+        System.out.println("");
+
+    }
 }
