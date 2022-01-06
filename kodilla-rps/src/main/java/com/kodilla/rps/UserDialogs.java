@@ -24,7 +24,7 @@ public class UserDialogs {
     public static UserSelection getUserSelection() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Enter your move: (S)cissors, (R)ock, (P)aper, (E)xit:");
+            System.out.println("Enter your move: (S)cissors, (R)ock, (P)aper, (E)xit, (A)gain:");
             String s = scanner.nextLine().toUpperCase();
             if ("S".equals(s))
                 return UserSelection.SCISSORS;
@@ -34,7 +34,8 @@ public class UserDialogs {
                 return UserSelection.PAPER;
             else if ("E".equals(s))
                 return UserSelection.EXIT;
-            else
+            else if ("A".equals(s))
+                return UserSelection.AGAIN;
                 System.out.println("Wrong selection, try again.");
         }
     }
@@ -46,7 +47,9 @@ public class UserDialogs {
         System.out.println("Round " + round + " of " + numberOfRounds);
         System.out.println("User selected: " + userSelection);
         System.out.println("Computer selected: " + computerSelection);
-        System.out.println("");
+        System.out.println("Winner: " + winner);
+        System.out.println("User score: " + userScore);
+        System.out.println("Computer score: " + computerScore);
 
     }
 }

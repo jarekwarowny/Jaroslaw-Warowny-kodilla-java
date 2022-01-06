@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GameAI {
 
-    public static UserSelection getComputerSelction() {
+    public static UserSelection getComputerSelection() {
         Random random = new Random();
         int n = random.nextInt(100);
         if (n < 33)
@@ -31,13 +31,18 @@ public class GameAI {
             else
                 return Winner.DRAW;
         } else if (userSelection == UserSelection.PAPER) {
-
             if (computerSelection == UserSelection.SCISSORS)
                 return Winner.COMPUTER;
             else if (computerSelection == UserSelection.ROCK)
                 return Winner.HUMAN;
             else
                 return Winner.DRAW;
+        } else if (userSelection == UserSelection.EXIT) {
+            System.out.println("You exit the game");
+        } else if (userSelection == UserSelection.AGAIN) {
+            System.out.println("The game will start in few seconds.");
         }
+        return null;
     }
 }
+
