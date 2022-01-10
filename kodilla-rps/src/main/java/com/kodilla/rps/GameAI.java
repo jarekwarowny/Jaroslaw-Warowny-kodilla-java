@@ -37,6 +37,8 @@ public class GameAI {
                 return Winner.HUMAN;
             else
                 return Winner.DRAW;
+        } else if (userSelection == UserSelection.RESTART) {
+            return Winner.RESET;
         }
         return null;
     }
