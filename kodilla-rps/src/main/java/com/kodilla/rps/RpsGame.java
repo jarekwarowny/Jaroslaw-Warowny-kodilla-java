@@ -18,10 +18,7 @@ public class RpsGame {
            } else if (winner == Winner.DRAW) {
                userScore++;
                computerScore++;
-           } else if (winner == Winner.QUIT) {
-               ;
            }
-
            UserDialogs.showStatistics(round + 1, numberOfRounds,
                    computerSelection, userSelection,
                    computerScore, userScore,

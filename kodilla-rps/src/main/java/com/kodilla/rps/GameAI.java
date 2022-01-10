@@ -37,10 +37,6 @@ public class GameAI {
                 return Winner.HUMAN;
             else
                 return Winner.DRAW;
-        } else if (userSelection == UserSelection.EXIT) {
-            System.out.println("You exit the game");
-        } else if (userSelection == UserSelection.AGAIN) {
-            System.out.println("The game will start in few seconds.");
         }
         return null;
     }

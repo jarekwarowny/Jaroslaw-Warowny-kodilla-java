@@ -24,21 +24,30 @@ public class UserDialogs {
     public static UserSelection getUserSelection() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Enter your move: (S)cissors, (R)ock, (P)aper, (E)xit, (A)gain:");
+            System.out.println("Enter your move: (S)cissors, (R)ock, (P)aper:");
             String s = scanner.nextLine().toUpperCase();
+            String playagain;
+            String y = "y";
+            System.out.println("Play another game? (y/n)");
+            boolean isPlayingAgain = true;
             if ("S".equals(s))
                 return UserSelection.SCISSORS;
             else if ("R".equals(s))
                 return UserSelection.ROCK;
             else if ("P".equals(s))
                 return UserSelection.PAPER;
-            else if ("E".equals(s))
-                return UserSelection.EXIT;
-            else if ("A".equals(s))
-                return UserSelection.AGAIN;
-                System.out.println("Wrong selection, try again.");
+            if (s.equalsIgnoreCase("y")) {
+                break;
+            } else if (s.equalsIgnoreCase("n")) {
+                System.out.println("n");
+                isPlayingAgain = false;
+                break;
+            }
+            System.out.println("Wrong selection, try again.");
         }
+        return null;
     }
+
 
     public static void showStatistics(int round, int numberOfRounds,
                                       UserSelection computerSelection, UserSelection userSelection,
