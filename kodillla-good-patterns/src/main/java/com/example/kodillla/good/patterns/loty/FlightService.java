@@ -24,13 +24,10 @@ public class FlightService {
                 .filter(flight -> flight.getArrivalAirport().equals(acrossAirport))
                 .collect(Collectors.toList());
 
-        List<Flight> theSecondList = FlightRepository.theFlight().stream()
+        theList.addAll(FlightRepository.theFlight().stream()
                 .filter(flight -> flight.getDepartureAirport().equals(acrossAirport))
                 .filter(flight -> flight.getArrivalAirport().equals(arrivalAirport))
-                .collect(Collectors.toList());
-
-        List<Flight> theThirdList = new ArrayList<>();
-        theThirdList.addAll(theSecondList);
-        return theThirdList;
+                .collect(Collectors.toList()));
+        return theList;
     }
 }
