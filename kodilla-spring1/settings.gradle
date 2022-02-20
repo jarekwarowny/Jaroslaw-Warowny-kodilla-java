@@ -1,8 +1,0 @@
-rootProject.name = 'kodilla-spring1'
-include 'kodilla-testing'
-include 'kodilla-stream'
-include 'kodilla-exception'
-include 'kodillla-good-patterns'
-include 'kodilla-spring-intro1'
-include 'kodilla-spring1'
-
