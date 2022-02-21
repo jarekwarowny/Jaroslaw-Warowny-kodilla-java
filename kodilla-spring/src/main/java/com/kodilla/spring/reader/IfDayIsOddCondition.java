@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 import java.time.LocalDate;
-
+/*
 public class IfDayIsOddCondition implements Condition {
 
     @Override
@@ -13,3 +13,4 @@ public class IfDayIsOddCondition implements Condition {
         return LocalDate.now().getDayOfMonth() % 2 != 0;
     }
 }
+*/

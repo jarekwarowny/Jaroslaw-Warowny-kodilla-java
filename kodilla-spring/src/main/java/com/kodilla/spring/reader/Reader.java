@@ -1,5 +1,5 @@
 package com.kodilla.spring.reader;
-
+/*
 public final class Reader {
 
     final Book theBook;
@@ -12,3 +12,5 @@ public final class Reader {
         System.out.println("Reading: " + theBook.getTitle());
     }
 }
+
+ */

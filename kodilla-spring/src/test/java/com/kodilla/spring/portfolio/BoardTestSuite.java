@@ -15,8 +15,8 @@ public class BoardTestSuite {
         Board board = applicationContext.getBean(Board.class);
 
         board.getToDoList().getTasks().add("You have task to do");
-        board.getToDoList().getTasks().add("Your task is in progress");
-        board.getToDoList().getTasks().add("Your task is done");
+        board.getInProgressList().getTasks().add("Your task is in progress");
+        board.getDoneList().getTasks().add("Your task is done");
 
         String stringOne = board.getToDoList().getTasks().get(0);
         String stringTwo = board.getInProgressList().getTasks().get(0);
