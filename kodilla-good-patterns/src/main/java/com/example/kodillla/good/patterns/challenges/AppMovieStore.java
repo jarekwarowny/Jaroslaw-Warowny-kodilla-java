@@ -2,7 +2,7 @@ package com.example.kodillla.good.patterns.challenges;
 
 import java.util.stream.Collectors;
 
-public class AppMovieStore {
+class AppMovieStore {
 
     public static void main(String[] args) {
        MovieStore movieStore = new MovieStore();

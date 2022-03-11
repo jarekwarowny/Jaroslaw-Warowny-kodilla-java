@@ -1,6 +1,6 @@
 package com.example.kodillla.good.patterns.loty;
 
-public class App {
+class App {
 
     public static void main(String[] args) {
         FlightService flightService = new FlightService();
