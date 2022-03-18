@@ -2,10 +2,12 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
@@ -13,6 +15,8 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+    @Autowired
+    private EmployeeDao employeeDao;
 
     @Test
     void testSaveManyToMany() {
@@ -50,13 +54,38 @@ class CompanyDaoTestSuite {
         assertNotEquals(0, dataMaestersId);
         assertNotEquals(0, greyMatterId);
 
-        //CleanUp
-        //try {
-        //    companyDao.deleteById(softwareMachineId);
-        //    companyDao.deleteById(dataMaestersId);
-        //    companyDao.deleteById(greyMatterId);
-        //} catch (Exception e) {
-        //    //do nothing
-        //}
+
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+        }
+    }
+
+    @Test
+    void employeeTest() {
+        Employee employee1 = new Employee("aaa", "sss");
+        employeeDao.save(employee1);
+        Employee employee2 = new Employee("aaa", "www");
+        employeeDao.save(employee2);
+
+        System.out.println(employeeDao.retrieveEmployee("sss").toString());
+
+        Assertions.assertEquals(1, employeeDao.retrieveEmployee("sss").size());
+
+        employeeDao.deleteAll();
+    }
+
+    @Test
+    void companyTest() {
+        Company company1 = new Company("www");
+        companyDao.save(company1);
+        Company company2 = new Company("rrr");
+        companyDao.save(company2);
+
+        Assertions.assertEquals(1, companyDao.retriveCompany("www").size());
+
+        companyDao.deleteAll();
     }
 }

@@ -6,7 +6,11 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@NamedNativeQuery(
+        name = "Company.retriveCompany",
+        query = "SELECT * FROM COMPANIES c WHERE SUBSTRING(c.name, 1, 3) = ?1",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -31,7 +35,7 @@ public class Company {
     }
 
     @NotNull
-    @Column(name = "COMPANY_NAME")
+    @Column(name = "NAME")
     public String getName() {
         return name;
     }
@@ -51,5 +55,13 @@ public class Company {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
