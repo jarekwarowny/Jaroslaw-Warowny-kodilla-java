@@ -6,9 +6,14 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Employee.retriveEmployee",
+        query = "SELECT * FROM EMPLOYEES WHERE LASTNAME LIKE CONCAT('%', :LASTNAME, '%')",
+        resultClass = Employee.class
+)
 @NamedQuery(
-        name = "Employee.retrieveEmployee",
-        query = "FROM Employee WHERE lastname = ?1"
+        name = "Employee.retriveEmployee2",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
 )
 @Entity
 @Table(name = "EMPLOYEES")

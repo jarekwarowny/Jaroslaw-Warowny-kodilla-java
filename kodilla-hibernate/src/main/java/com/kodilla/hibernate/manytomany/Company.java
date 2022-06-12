@@ -8,7 +8,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retriveCompany",
-        query = "SELECT * FROM COMPANIES c WHERE SUBSTRING(c.name, 1, 3) = ?1",
+        query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT('%', :NAME, '%')",
         resultClass = Company.class
 )
 @Entity
@@ -35,7 +35,7 @@ public class Company {
     }
 
     @NotNull
-    @Column(name = "NAME")
+    @Column(name = "COMPANY_NAME")
     public String getName() {
         return name;
     }
