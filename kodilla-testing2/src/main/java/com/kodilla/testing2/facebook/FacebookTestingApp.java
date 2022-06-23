@@ -23,7 +23,7 @@ public class FacebookTestingApp {
 
         WebElement webElementCreateNewAccount = driver.findElement(By.xpath(XPATH_CREATE_NEW_ACCOUNT));
         webElementCreateNewAccount.click();
-
+/*
         WebElement webElementSelectDay = driver.findElement(By.xpath(XPATH_SELECT_DAY));
         Select selectDay = new Select(webElementSelectDay);
         selectDay.selectByIndex(1);
@@ -35,5 +35,7 @@ public class FacebookTestingApp {
         WebElement webElementSelectYear = driver.findElement(By.xpath(XPATH_SELECT_YEAR));
         Select selectYear = new Select(webElementSelectYear);
         selectYear.selectByIndex(13);
+
+ */
     }
 }
